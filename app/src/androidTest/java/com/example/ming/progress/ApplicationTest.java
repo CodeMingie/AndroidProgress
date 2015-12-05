@@ -17,6 +17,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         createApplication();
     }
     public void testMyApp() throws Exception {
-        StorageMaster.GetGoals();
+        //StorageMaster.GetGoals();
     }
 }

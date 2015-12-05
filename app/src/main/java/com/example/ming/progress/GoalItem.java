@@ -6,7 +6,7 @@ public class GoalItem {
     private int units;
     private int id;
 
-    public GoalItem(String name, int units, int id) {
+    public GoalItem(int id, String name, int units) {
         this.name = name;
         this.units = units;
         this.id = id;

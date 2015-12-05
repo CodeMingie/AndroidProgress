@@ -30,7 +30,8 @@ public class GoalListFragment extends ListFragment implements OnItemClickListene
 
         super.onActivityCreated(savedInstanceState);
 
-        rowItems = StorageMaster.GetGoals();
+        StorageMaster s = new StorageMaster(this.getActivity());
+        rowItems = s.GetGoals();
         adapter = new CustomAdapter(getActivity(), rowItems);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
@@ -45,7 +46,9 @@ public class GoalListFragment extends ListFragment implements OnItemClickListene
         //        .show();
 
         Intent i = new Intent(getActivity(), GoalDetailActivity.class);
-        i.putExtra(GoalDetailActivity.EXTRA_PARAM_ID, item.getId());
+        i.putExtra(Constants.PARAM_ID, item.getId());
+        i.putExtra(Constants.PARAM_NAME, item.getName());
+        i.putExtra(Constants.PARAM_UNIT, item.getUnits());
         startActivity(i);
     }
 
