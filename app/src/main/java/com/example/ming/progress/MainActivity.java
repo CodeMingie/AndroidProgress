@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//TODO: very end...consider, soccer balls that user taps
+//Menu add or delete or edit. pg 256
+//SQL lite database
 
-public class MainLayoutActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

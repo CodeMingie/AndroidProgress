@@ -7,16 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class CustomAdapter extends BaseAdapter {
 
     Context context;
-    List<RowItem> rowItem;
+    List<GoalItem> rowItem;
 
-    CustomAdapter(Context context, List<RowItem> rowItem) {
+    CustomAdapter(Context context, List<GoalItem> rowItem) {
         this.context = context;
         this.rowItem = rowItem;
 
@@ -50,9 +49,9 @@ public class CustomAdapter extends BaseAdapter {
         }
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
 
-        RowItem row_pos = rowItem.get(position);
+        GoalItem row_pos = rowItem.get(position);
         // setting the image resource and title
-        txtTitle.setText(row_pos.getTitle());
+        txtTitle.setText(row_pos.getName());
 
         return convertView;
 

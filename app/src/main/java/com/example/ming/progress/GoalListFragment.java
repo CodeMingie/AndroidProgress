@@ -2,9 +2,9 @@ package com.example.ming.progress;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.annotation.SuppressLint;
+
 import android.app.ListFragment;
-import android.content.res.TypedArray;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +13,10 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ProgressListFragment extends ListFragment implements OnItemClickListener {
-
-    String[] menutitles;
+public class GoalListFragment extends ListFragment implements OnItemClickListener {
 
     CustomAdapter adapter;
-    private List<RowItem> rowItems;
+    private List<GoalItem> rowItems;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,29 +30,23 @@ public class ProgressListFragment extends ListFragment implements OnItemClickLis
 
         super.onActivityCreated(savedInstanceState);
 
-        menutitles = getResources().getStringArray(R.array.titles);
-
-        rowItems = new ArrayList<RowItem>();
-
-        for (int i = 0; i < menutitles.length; i++) {
-            RowItem items = new RowItem(menutitles[i]);
-
-            rowItems.add(items);
-        }
-
+        rowItems = StorageMaster.GetGoals();
         adapter = new CustomAdapter(getActivity(), rowItems);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
 
-        Toast.makeText(getActivity(), menutitles[position], Toast.LENGTH_SHORT)
-                .show();
+        GoalItem item = (GoalItem) adapter.getItem(position);
+        //Toast.makeText(getActivity(), position, Toast.LENGTH_SHORT)
+        //        .show();
 
+        Intent i = new Intent(getActivity(), GoalDetailActivity.class);
+        i.putExtra(GoalDetailActivity.EXTRA_PARAM_ID, item.getId());
+        startActivity(i);
     }
 
 }
