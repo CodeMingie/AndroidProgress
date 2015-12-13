@@ -18,13 +18,18 @@ public class CustomAdapter extends BaseAdapter {
     CustomAdapter(Context context, List<GoalItem> rowItem) {
         this.context = context;
         this.rowItem = rowItem;
-
     }
 
     @Override
     public int getCount() {
 
         return rowItem.size();
+    }
+
+    public void addItem(GoalItem item)
+    {
+        rowItem.add(item);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -47,11 +52,13 @@ public class CustomAdapter extends BaseAdapter {
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.list_item, null);
         }
-        TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
+        TextView txtName = (TextView) convertView.findViewById(R.id.name);
+        TextView txtUnit = (TextView) convertView.findViewById(R.id.unit);
 
         GoalItem row_pos = rowItem.get(position);
         // setting the image resource and title
-        txtTitle.setText(row_pos.getName());
+        txtName.setText("Name: " + row_pos.getName());
+        txtUnit.setText("Unit: " + Integer.toString(row_pos.getUnits()));
 
         return convertView;
 

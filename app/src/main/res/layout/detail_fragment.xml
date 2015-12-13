@@ -32,4 +32,20 @@
         android:layout_weight="0.04"
         android:inputType="number"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/btSave"
+        android:onClick="onSaveClick"
+        android:layout_weight="0.04" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/btDelete"
+        android:layout_weight="0.04" />
+
 </LinearLayout>

@@ -4,9 +4,9 @@ public class GoalItem {
 
     private String name;
     private int units;
-    private int id;
+    private long id;
 
-    public GoalItem(int id, String name, int units) {
+    public GoalItem(long id, String name, int units) {
         this.name = name;
         this.units = units;
         this.id = id;
@@ -28,7 +28,9 @@ public class GoalItem {
         this.units = units;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
+
+    public void setId(long id) { this.id = id; }
 }
